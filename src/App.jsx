@@ -116,6 +116,7 @@ function DashboardContent({ currentView }) {
 function MainApp() {
   const [currentView, setCurrentView] = useState('dashboard');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   return (
     <div className="relative flex h-screen overflow-hidden bg-[#0B0E14]">
@@ -133,10 +134,13 @@ function MainApp() {
         onClose={() => setIsSidebarOpen(false)}
       />
 
-      <div className="flex-1 flex flex-col min-w-0 z-10">
-        <Header onOpenSidebar={() => setIsSidebarOpen(true)} />
+      <div className="flex-1 flex flex-col min-w-0 z-10 relative">
+        <Header onOpenSidebar={() => setIsSidebarOpen(true)} isScrolled={isScrolled} />
         
-        <main className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 custom-scrollbar">
+        <main 
+          className="flex-1 overflow-y-auto p-4 pt-20 md:px-8 md:pb-8 md:pt-24 lg:p-10 custom-scrollbar"
+          onScroll={(e) => setIsScrolled(e.currentTarget.scrollTop > 20)}
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={currentView}
