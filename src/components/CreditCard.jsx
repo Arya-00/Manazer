@@ -36,7 +36,7 @@ export default function CreditCard({ card, onEdit }) {
           <div className="flex justify-between items-start">
             <span className="text-lg font-bold tracking-wider uppercase opacity-90">{card.bankName || 'Bank Name'}</span>
             
-            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity">
               <button 
                 onClick={(e) => { e.stopPropagation(); setShowSensitive(!showSensitive); }}
                 className="p-1.5 hover:bg-white/20 rounded-full transition-colors backdrop-blur-md"
@@ -76,7 +76,7 @@ export default function CreditCard({ card, onEdit }) {
               onClick={(e) => handleCopy(e, card.cardNumber.replace(/\s+/g, ''), 'Card number')}
             >
               {showSensitive ? formatCardNumber(card.cardNumber) : maskCardNumber(card.cardNumber)}
-              <Copy className="w-4 h-4 inline-block ml-2 opacity-0 group-hover/number:opacity-100 transition-opacity" />
+              <Copy className="w-4 h-4 inline-block ml-2 opacity-100 lg:opacity-0 lg:group-hover/number:opacity-100 transition-opacity" />
             </div>
           </div>
 
@@ -88,7 +88,7 @@ export default function CreditCard({ card, onEdit }) {
               <span className="text-[10px] uppercase tracking-widest opacity-70">Card Holder</span>
               <span className="font-medium tracking-wide uppercase flex items-center">
                 {card.cardholderName || 'NAME SURNAME'}
-                <Copy className="w-3 h-3 ml-2 opacity-0 group-hover/name:opacity-100 transition-opacity" />
+                <Copy className="w-3 h-3 ml-2 opacity-100 lg:opacity-0 lg:group-hover/name:opacity-100 transition-opacity" />
               </span>
             </div>
             
@@ -99,7 +99,7 @@ export default function CreditCard({ card, onEdit }) {
               >
                 <span className="text-[10px] uppercase tracking-widest opacity-70">Expires</span>
                 <span className="font-medium tracking-wider font-mono flex items-center">
-                  <Copy className="w-3 h-3 mr-1 opacity-0 group-hover/exp:opacity-100 transition-opacity" />
+                  <Copy className="w-3 h-3 mr-1 opacity-100 lg:opacity-0 lg:group-hover/exp:opacity-100 transition-opacity" />
                   {formatExpiry(card.expiryDate) || 'MM/YY'}
                 </span>
               </div>
@@ -110,7 +110,7 @@ export default function CreditCard({ card, onEdit }) {
               >
                 <span className="text-[10px] uppercase tracking-widest opacity-70">CVV</span>
                 <span className="font-medium tracking-wider font-mono flex items-center">
-                  <Copy className="w-3 h-3 mr-1 opacity-0 group-hover/cvv:opacity-100 transition-opacity" />
+                  <Copy className="w-3 h-3 mr-1 opacity-100 lg:opacity-0 lg:group-hover/cvv:opacity-100 transition-opacity" />
                   {showSensitive ? card.cvv || '***' : '***'}
                 </span>
               </div>

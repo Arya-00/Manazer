@@ -12,7 +12,7 @@ import { Plus } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function DashboardContent({ currentView }) {
-  const { cards } = useAppContext();
+  const { cards, reorderCards } = useAppContext();
   const [searchQuery, setSearchQuery] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editCardData, setEditCardData] = useState(null);
@@ -72,7 +72,11 @@ function DashboardContent({ currentView }) {
               <p className="text-white/60 text-lg">No cards found matching your criteria.</p>
             </div>
           ) : (
-            <CardGrid cards={filteredCards} onEdit={handleEdit} />
+            <CardGrid 
+              cards={filteredCards} 
+              onEdit={handleEdit} 
+              onReorder={currentView === 'dashboard' && !searchQuery.trim() ? reorderCards : undefined}
+            />
           )}
         </>
       )}

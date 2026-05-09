@@ -37,6 +37,10 @@ export function AppProvider({ children }) {
     setCards(importedCards);
   };
 
+  const reorderCards = (newCards) => {
+    setCards(newCards);
+  };
+
   const value = {
     cards,
     addCard,
@@ -46,7 +50,8 @@ export function AppProvider({ children }) {
     toasts,
     addToast,
     clearCards,
-    importCards
+    importCards,
+    reorderCards
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
