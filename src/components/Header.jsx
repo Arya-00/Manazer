@@ -1,4 +1,3 @@
-import React from 'react';
 import { CreditCard, Menu } from 'lucide-react';
 import { cn } from '../utils/cn';
 

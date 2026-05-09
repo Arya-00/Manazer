@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Copy, Eye, EyeOff, Star, Edit, Trash2 } from 'lucide-react';
+import { Copy, Edit, Eye, EyeOff, Star, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { gradients } from '../data/gradients';
-import { maskCardNumber, formatCardNumber, formatExpiry } from '../utils/formatters';
 import { cn } from '../utils/cn';
+import { formatCardNumber, formatExpiry, maskCardNumber } from '../utils/formatters';
 
 export default function CreditCard({ card, onEdit }) {
   const { deleteCard, toggleFavorite, addToast } = useAppContext();

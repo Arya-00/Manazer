@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, Check } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Check, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { gradients } from '../data/gradients';
-import GradientPicker from './GradientPicker';
 import { formatCardNumber, formatExpiry } from '../utils/formatters';
+import GradientPicker from './GradientPicker';
 // A simplified preview component used only in the modal
 
 // A simplified preview component used only in the modal

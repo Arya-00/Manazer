@@ -1,5 +1,4 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { CheckCircle2, Info } from 'lucide-react';
 import { useAppContext } from '../context/AppContext';
 

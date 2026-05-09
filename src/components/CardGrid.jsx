@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion, Reorder } from 'framer-motion';
+import { motion, Reorder, useDragControls } from 'framer-motion';
+import { GripVertical } from 'lucide-react';
 import CreditCard from './CreditCard';
 
 const container = {
@@ -17,6 +17,28 @@ const item = {
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
 
+function DraggableCard({ card, onEdit }) {
+  const controls = useDragControls();
+
+  return (
+    <Reorder.Item 
+      value={card} 
+      variants={item} 
+      dragListener={false} 
+      dragControls={controls}
+      className="relative group"
+    >
+      <div 
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30 p-2 cursor-grab active:cursor-grabbing touch-none text-white/40 hover:text-white transition-colors bg-black/40 hover:bg-black/60 rounded-xl backdrop-blur-md opacity-70 group-hover:opacity-100"
+        onPointerDown={(e) => controls.start(e)}
+      >
+        <GripVertical className="w-5 h-5 drop-shadow-md" />
+      </div>
+      <CreditCard card={card} onEdit={onEdit} />
+    </Reorder.Item>
+  );
+}
+
 export default function CardGrid({ cards, onEdit, onReorder }) {
   if (onReorder) {
     return (
@@ -30,9 +52,7 @@ export default function CardGrid({ cards, onEdit, onReorder }) {
         className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
       >
         {cards.map(card => (
-          <Reorder.Item key={card.id} value={card} variants={item} className="cursor-grab active:cursor-grabbing relative">
-            <CreditCard card={card} onEdit={onEdit} />
-          </Reorder.Item>
+          <DraggableCard key={card.id} card={card} onEdit={onEdit} />
         ))}
       </Reorder.Group>
     );

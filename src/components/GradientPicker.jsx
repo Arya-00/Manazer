@@ -1,7 +1,6 @@
-import React from 'react';
+import { Check } from 'lucide-react';
 import { gradients } from '../data/gradients';
 import { cn } from '../utils/cn';
-import { Check } from 'lucide-react';
 
 export default function GradientPicker({ selectedId, onChange }) {
   return (

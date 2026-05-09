@@ -1,15 +1,15 @@
-import React, { useState, useMemo } from 'react';
-import { AppProvider, useAppContext } from './context/AppContext';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import SearchBar from './components/SearchBar';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Plus } from 'lucide-react';
+import { useMemo, useState } from 'react';
+import AddCardModal from './components/AddCardModal';
 import CardGrid from './components/CardGrid';
 import EmptyState from './components/EmptyState';
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
 import SettingsPanel from './components/SettingsPanel';
-import AddCardModal from './components/AddCardModal';
+import Sidebar from './components/Sidebar';
 import Toast from './components/Toast';
-import { Plus } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AppProvider, useAppContext } from './context/AppContext';
 
 function DashboardContent({ currentView }) {
   const { cards, reorderCards } = useAppContext();

@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Download, Upload, Trash2, AlertTriangle } from 'lucide-react';
+import { AlertTriangle, Download, Trash2, Upload } from 'lucide-react';
+import { useRef } from 'react';
 import { useAppContext } from '../context/AppContext';
 
 export default function SettingsPanel() {
